@@ -1,1 +1,34 @@
-p info#tables
+
+css:
+
+  table{
+    border-collapse: collapse;
+  }
+
+  th, td{
+    border: 1px solid #ccc;
+    padding: 0.2em;
+  }
+
+
+- @models.each do |model|
+
+  h2= model.table_name
+
+  table
+    thead
+      tr
+        th Name
+        th Type
+        th Comment
+        th Primary Key
+    tbody
+      - model.columns.each do |column|
+        tr
+          td= column.name
+          td= column.sql_type
+          td= column.comment
+          td
+            - if column.name == model.primary_key
+              |Yes
+          / td= debug column
