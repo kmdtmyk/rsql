@@ -2,4 +2,5 @@
 
 Rinfo::Engine.routes.draw do
   get 'tables' => 'info#tables'
+  get 'sql' => 'info#sql'
 end

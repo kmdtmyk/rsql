@@ -9,8 +9,12 @@ RUN apk update && \
     # sqlite
     libc6-compat \
     sqlite-dev \
+    # node
+    nodejs \
+    npm \
     # others
     tzdata \
+    util-linux \
     vim \
     bash \
     sudo

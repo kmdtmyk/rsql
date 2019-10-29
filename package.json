@@ -1,0 +1,26 @@
+{
+  "name": "rinfo",
+  "version": "0.1.0",
+  "description": "Short description and motivation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel watch app/javascript/rinfo/*.js --out-dir app/assets/javascripts/rinfo --no-source-maps --no-hmr",
+    "build": "parcel build app/javascript/rinfo/*.js --out-dir app/assets/javascripts/rinfo --no-source-maps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kmdtmyk@github.com/kmdtmyk/rinfo.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmdtmyk/rinfo/issues"
+  },
+  "homepage": "https://github.com/kmdtmyk/rinfo#readme",
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "vue": "^2.6.10"
+  },
+  "dependencies": {}
+}

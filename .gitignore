@@ -11,3 +11,6 @@ spec/dummy/tmp/
 
 /vendor/bundle/*
 !/vendor/bundle/.keep
+
+/.cache
+/node_modules
