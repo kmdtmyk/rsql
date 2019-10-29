@@ -1,6 +1,24 @@
+
+css:
+  table.result{
+    border-collapse: collapse;
+  }
+
+  th, td{
+    border: 1px solid #ccc;
+  }
+
 #app
   div
     textarea(v-model='sql')
   button(@click='execute') execute
+
+  table.result(v-if='result')
+    thead
+      tr
+        th(v-for='column in result.columns') {{column}}
+    tbody
+      tr(v-for='row in result.rows')
+        td(v-for='value in row') {{value}}
 
 = javascript_include_tag 'rinfo/sql'

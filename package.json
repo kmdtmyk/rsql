@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kmdtmyk/rinfo#readme",
   "devDependencies": {
+    "axios": "^0.19.0",
     "parcel": "^1.12.4",
     "vue": "^2.6.10"
   },

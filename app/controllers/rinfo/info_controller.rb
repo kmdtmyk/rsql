@@ -18,5 +18,13 @@ module Rinfo
       end
     end
 
+    def execute_sql
+      result = ActiveRecord::Base.connection.exec_query(params[:sql])
+      render json: {
+        columns: result.columns,
+        rows: result.rows,
+      }
+    end
+
   end
 end
