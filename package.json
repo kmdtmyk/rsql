@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/kmdtmyk/rinfo#readme",
   "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
     "axios": "^0.19.0",
     "parcel": "^1.12.4",
-    "vue": "^2.6.10"
+    "pug": "^2.0.4",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {}
 }
