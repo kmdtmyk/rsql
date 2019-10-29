@@ -6,7 +6,6 @@ module Rinfo
   class InfoController < ApplicationController
 
     def tables
-      render plain: 'tables'
     end
 
   end
