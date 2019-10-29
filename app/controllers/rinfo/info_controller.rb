@@ -24,6 +24,10 @@ module Rinfo
         columns: result.columns,
         rows: result.rows,
       }
+    rescue => e
+      render json: {
+        error: e.to_s
+      }
     end
 
   end

@@ -4,13 +4,15 @@ div
     textarea(v-model='sql')
   button(@click='execute') execute
 
-  table.result(v-if='result')
-    thead
-      tr
-        th(v-for='column in result.columns') {{column}}
-    tbody
-      tr(v-for='row in result.rows')
-        td(v-for='value in row') {{value}}
+  div(v-if='result')
+    .error(v-if='result.error') {{result.error}}
+    table.result(v-else)
+      thead
+        tr
+          th(v-for='column in result.columns') {{column}}
+      tbody
+        tr(v-for='row in result.rows')
+          td(v-for='value in row') {{value}}
 </template>
 
 <script>
