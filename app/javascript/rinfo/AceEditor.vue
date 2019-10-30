@@ -18,6 +18,14 @@ export default {
     editor.on('change', () => {
       this.$emit('input', editor.getValue())
     })
+
+    const {keydown, keypress} = this.$listeners
+    if(keydown != null){
+      editor.textInput.getElement().addEventListener('keydown', keydown)
+    }
+    if(keypress != null){
+      editor.textInput.getElement().addEventListener('keypress', keypress)
+    }
   },
 }
 </script>

@@ -1,7 +1,7 @@
 <template lang='pug'>
 div
-  AceEditor.editor(v-model='sql')
-  button(@click='execute') execute
+  AceEditor.editor(v-model='sql' @keypress='keypress')
+  button(@click='execute' title='Ctrl+Enter') execute
 
   div(v-if='result')
     .error(v-if='result.error') {{result.error}}
@@ -39,6 +39,12 @@ export default {
       console.log(result)
       console.log(result.data)
       this.result = result.data
+    },
+    keypress(e){
+      if(e.ctrlKey === true && (e.keyCode === 10 || e.keyCode === 13)){
+        e.preventDefault()
+        this.execute()
+      }
     },
   },
 }
