@@ -13,6 +13,14 @@ export default {
       default: '',
     },
   },
+  watch: {
+    value(value){
+      if(value === this.editor.getValue()){
+        return
+      }
+      this.editor.setValue(value, -1)
+    },
+  },
   mounted(){
     const editor = ace.edit(this.$el, {
       mode: 'ace/mode/sql',
@@ -28,6 +36,8 @@ export default {
     if(keypress != null){
       editor.textInput.getElement().addEventListener('keypress', keypress)
     }
+
+    this.editor = editor
   },
 }
 </script>
