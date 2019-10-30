@@ -2,21 +2,13 @@
 div
   AceEditor.editor(v-model='sql' @keypress='keypress')
   button(@click='execute' title='Ctrl+Enter') execute
-
-  div(v-if='result')
-    .error(v-if='result.error') {{result.error}}
-    table.result(v-else)
-      thead
-        tr
-          th(v-for='column in result.columns') {{column}}
-      tbody
-        tr(v-for='row in result.rows')
-          td(v-for='value in row') {{value}}
+  QueryResult.result(v-model='result')
 </template>
 
 <script>
 import axios from 'axios'
 import AceEditor from './AceEditor'
+import QueryResult from './QueryResult'
 import LocalStorage from './LocalStorage'
 
 axios.defaults.headers.common = {
@@ -29,6 +21,7 @@ const localStorage = new LocalStorage('rinfo')
 export default {
   components: {
     AceEditor,
+    QueryResult,
   },
   data(){
     return {
@@ -63,12 +56,8 @@ export default {
   height: 20em;
 }
 
-table.result{
-  border-collapse: collapse;
-
-  th, td{
-    border: 1px solid #ccc;
-  }
-
+.result{
+  height: 20em;
+  overflow: auto;
 }
 </style>
