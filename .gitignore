@@ -14,3 +14,5 @@ spec/dummy/tmp/
 
 /.cache
 /node_modules
+
+app/assets/javascripts/rinfo/*.dev.js

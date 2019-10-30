@@ -3,4 +3,7 @@
 
 script src='//cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js'
 
-= javascript_include_tag 'rinfo/sql'
+- if Rails.app_class.to_s.start_with? 'Dummy'
+  = javascript_include_tag 'rinfo/sql.dev'
+- else
+  = javascript_include_tag 'rinfo/sql'

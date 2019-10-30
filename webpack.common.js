@@ -2,7 +2,6 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-  mode: 'development',
   entry: {
     sql: './app/javascript/rinfo/sql.js',
   },
