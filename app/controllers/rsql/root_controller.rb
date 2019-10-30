@@ -3,7 +3,7 @@
 require_dependency 'rsql/application_controller'
 
 module Rsql
-  class InfoController < ApplicationController
+  class RootController < ApplicationController
 
     def execute_sql
       result = ActiveRecord::Base.connection.exec_query(params[:sql])
