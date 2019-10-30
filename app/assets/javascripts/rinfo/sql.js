@@ -86,6 +86,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/javascript/rinfo/AceEditor.vue":
+/*!********************************************!*\
+  !*** ./app/javascript/rinfo/AceEditor.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug& */ \"./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug&\");\n/* harmony import */ var _AceEditor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AceEditor.vue?vue&type=script&lang=js& */ \"./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _AceEditor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"app/javascript/rinfo/AceEditor.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./app/javascript/rinfo/AceEditor.vue?");
+
+/***/ }),
+
+/***/ "./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AceEditor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./AceEditor.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AceEditor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./app/javascript/rinfo/AceEditor.vue?");
+
+/***/ }),
+
+/***/ "./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug&":
+/*!************************************************************************************!*\
+  !*** ./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/pug-plain-loader!../../../node_modules/vue-loader/lib??vue-loader-options!./AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js?!./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AceEditor_vue_vue_type_template_id_5f5f0b1b_lang_pug___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/AceEditor.vue?");
+
+/***/ }),
+
 /***/ "./app/javascript/rinfo/App.vue":
 /*!**************************************!*\
   !*** ./app/javascript/rinfo/App.vue ***!
@@ -463,7 +499,7 @@ eval("/*!\n * Determine if an object is a Buffer\n *\n * @author   Feross Aboukh
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"table.result[data-v-6fe95f2c] {\\n  border-collapse: collapse;\\n}\\ntable.result th[data-v-6fe95f2c], table.result td[data-v-6fe95f2c] {\\n    border: 1px solid #ccc;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib??vue-loader-options");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".editor[data-v-6fe95f2c] {\\n  height: 20em;\\n}\\ntable.result[data-v-6fe95f2c] {\\n  border-collapse: collapse;\\n}\\ntable.result th[data-v-6fe95f2c], table.result td[data-v-6fe95f2c] {\\n    border: 1px solid #ccc;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -512,6 +548,18 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./app/javascript/rinfo/AceEditor.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  model: {\n    prop: 'value',\n  },\n  props: {\n    value: {\n      type: String,\n      default: '',\n    },\n  },\n  mounted(){\n    const editor = ace.edit(this.$el)\n    editor.on('change', () => {\n      this.$emit('input', editor.getValue())\n    })\n  },\n});\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/AceEditor.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./app/javascript/rinfo/App.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./app/javascript/rinfo/App.vue?vue&type=script&lang=js& ***!
@@ -520,7 +568,19 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\naxios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common = {\n  'X-Requested-With': 'XMLHttpRequest',\n  'X-CSRF-TOKEN': document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content')\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data(){\n    return {\n      sql: 'select * from books',\n      result: {},\n    }\n  },\n  methods: {\n    async execute(){\n      const result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('sql', {sql: this.sql})\n      console.log(result)\n      console.log(result.data)\n      this.result = result.data\n    },\n  },\n});\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _AceEditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AceEditor */ \"./app/javascript/rinfo/AceEditor.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\naxios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common = {\n  'X-Requested-With': 'XMLHttpRequest',\n  'X-CSRF-TOKEN': document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content')\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  components: {\n    AceEditor: _AceEditor__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  },\n  data(){\n    return {\n      sql: 'select * from books',\n      result: {},\n    }\n  },\n  methods: {\n    async execute(){\n      const result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('sql', {sql: this.sql})\n      console.log(result)\n      console.log(result.data)\n      this.result = result.data\n    },\n  },\n});\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js?!./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options!./app/javascript/rinfo/AceEditor.vue?vue&type=template&id=5f5f0b1b&lang=pug& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [_vm._v(_vm._s(_vm.value))])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/AceEditor.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -532,7 +592,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axio
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"div\", [\n      _c(\"textarea\", {\n        directives: [\n          {\n            name: \"model\",\n            rawName: \"v-model\",\n            value: _vm.sql,\n            expression: \"sql\"\n          }\n        ],\n        domProps: { value: _vm.sql },\n        on: {\n          input: function($event) {\n            if ($event.target.composing) {\n              return\n            }\n            _vm.sql = $event.target.value\n          }\n        }\n      })\n    ]),\n    _c(\"button\", { on: { click: _vm.execute } }, [_vm._v(\"execute\")]),\n    _vm.result\n      ? _c(\"div\", [\n          _vm.result.error\n            ? _c(\"div\", { staticClass: \"error\" }, [\n                _vm._v(_vm._s(_vm.result.error))\n              ])\n            : _c(\"table\", { staticClass: \"result\" }, [\n                _c(\"thead\", [\n                  _c(\n                    \"tr\",\n                    _vm._l(_vm.result.columns, function(column) {\n                      return _c(\"th\", [_vm._v(_vm._s(column))])\n                    }),\n                    0\n                  )\n                ]),\n                _c(\n                  \"tbody\",\n                  _vm._l(_vm.result.rows, function(row) {\n                    return _c(\n                      \"tr\",\n                      _vm._l(row, function(value) {\n                        return _c(\"td\", [_vm._v(_vm._s(value))])\n                      }),\n                      0\n                    )\n                  }),\n                  0\n                )\n              ])\n        ])\n      : _vm._e()\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    [\n      _c(\"AceEditor\", {\n        staticClass: \"editor\",\n        model: {\n          value: _vm.sql,\n          callback: function($$v) {\n            _vm.sql = $$v\n          },\n          expression: \"sql\"\n        }\n      }),\n      _c(\"button\", { on: { click: _vm.execute } }, [_vm._v(\"execute\")]),\n      _vm.result\n        ? _c(\"div\", [\n            _vm.result.error\n              ? _c(\"div\", { staticClass: \"error\" }, [\n                  _vm._v(_vm._s(_vm.result.error))\n                ])\n              : _c(\"table\", { staticClass: \"result\" }, [\n                  _c(\"thead\", [\n                    _c(\n                      \"tr\",\n                      _vm._l(_vm.result.columns, function(column) {\n                        return _c(\"th\", [_vm._v(_vm._s(column))])\n                      }),\n                      0\n                    )\n                  ]),\n                  _c(\n                    \"tbody\",\n                    _vm._l(_vm.result.rows, function(row) {\n                      return _c(\n                        \"tr\",\n                        _vm._l(row, function(value) {\n                          return _c(\"td\", [_vm._v(_vm._s(value))])\n                        }),\n                        0\n                      )\n                    }),\n                    0\n                  )\n                ])\n          ])\n        : _vm._e()\n    ],\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./app/javascript/rinfo/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 

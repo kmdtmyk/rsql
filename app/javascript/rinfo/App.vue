@@ -1,7 +1,6 @@
 <template lang='pug'>
 div
-  div
-    textarea(v-model='sql')
+  AceEditor.editor(v-model='sql')
   button(@click='execute') execute
 
   div(v-if='result')
@@ -17,6 +16,7 @@ div
 
 <script>
 import axios from 'axios'
+import AceEditor from './AceEditor'
 
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
@@ -24,6 +24,9 @@ axios.defaults.headers.common = {
 }
 
 export default {
+  components: {
+    AceEditor,
+  },
   data(){
     return {
       sql: 'select * from books',
@@ -42,6 +45,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.editor{
+  height: 20em;
+}
+
 table.result{
   border-collapse: collapse;
 
