@@ -118,7 +118,7 @@ export default {
     justify-content: space-between;
     align-items: baseline;
     font-size: 14px;
-    border: 1px solid #bbb;
+    border: 1px solid #aaa;
     border-bottom: 0;
     min-width: 5em;
     padding: 0 4px;
@@ -146,7 +146,7 @@ export default {
 }
 
 .tab-content{
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
 
   &:not(.active){
     height: 0;
