@@ -7,7 +7,9 @@ div(v-if='result')
         th(v-for='column in result.columns') {{column}}
     tbody
       tr(v-for='row in result.rows')
-        td(v-for='value in row') {{value}}
+        td(v-for='value in row' :class='{null: value == null}')
+          template(v-if='value == null') &lt;null&gt;
+          template(v-else) {{value}}
 </template>
 
 <script>
@@ -46,6 +48,11 @@ table{
     td{
       border-top: 0;
       white-space: nowrap;
+
+      &.null{
+        color: #aaa;
+      }
+
     }
   }
 
