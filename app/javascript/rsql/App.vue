@@ -125,6 +125,10 @@ export default {
     background-color: #fff;
     cursor: default;
 
+    &:not(:first-child){
+      border-left: 0;
+    }
+
     .close{
       cursor: pointer;
     }
