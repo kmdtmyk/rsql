@@ -1,29 +1,28 @@
 <template lang='pug'>
 div
-  div
-    label theme
-    select(v-model='theme')
-      option(v-for='theme in themes' :value='theme.value') {{theme.name}}
-  .tab-panel(@dblclick.self='newTab')
-    .tab(
-      v-for='(query, index) in queries'
-      :class='{active: index === activeTab}'
-      @mousedown='selectTab(index)'
-    )
-      .name {{index + 1}}
-      .close(@click='closeTab(index)') ❎
-  .tab-content(v-if='0 < queries.length')
-    AceEditor.editor(
-      v-model='queries[activeTab].sql'
-      :theme='theme'
-      @keypress='keypress'
-    )
-    button(@click='execute' title='Ctrl+Enter') execute
-    QueryResult.result(v-model='queries[activeTab].result')
+  MenuBar(v-model='config')
+  .main
+    .tab-panel(@dblclick.self='newTab')
+      .tab(
+        v-for='(query, index) in queries'
+        :class='{active: index === activeTab}'
+        @mousedown='selectTab(index)'
+      )
+        .name {{index + 1}}
+        .close(@click='closeTab(index)') ❎
+    .tab-content(v-if='0 < queries.length')
+      AceEditor.editor(
+        v-model='queries[activeTab].sql'
+        :theme='config.theme'
+        @keypress='keypress'
+      )
+      button(@click='execute' title='Ctrl+Enter') execute
+      QueryResult.result(v-model='queries[activeTab].result')
 </template>
 
 <script>
 import axios from 'axios'
+import MenuBar from './MenuBar'
 import AceEditor from './AceEditor'
 import QueryResult from './QueryResult'
 import LocalStorage from './LocalStorage'
@@ -35,29 +34,17 @@ axios.defaults.headers.common = {
 
 const localStorage = new LocalStorage('rsql')
 
-const themes = [
-  {name: 'Ambiance', value: 'ambiance'},
-  {name: 'Chaos', value: 'chaos'},
-  {name: 'Default', value: ''},
-  {name: 'Dracula', value: 'dracula'},
-  {name: 'Eclipse', value: 'eclipse'},
-  {name: 'Github', value: 'github'},
-  {name: 'Monokai', value: 'monokai'},
-  {name: 'Twilight', value: 'twilight'},
-  {name: 'XCode', value: 'xcode'},
-]
-
 export default {
   components: {
+    MenuBar,
     AceEditor,
     QueryResult,
   },
   data(){
     const queries = localStorage.get('queries') || [{}]
-    const theme = localStorage.get('theme') || ''
+    const config = localStorage.get('config') || {theme: ''}
     return {
-      themes,
-      theme,
+      config,
       queries,
       activeTab: 0,
     }
@@ -68,7 +55,7 @@ export default {
         return {sql: query.sql}
       })
       localStorage.set('queries', queries)
-      localStorage.set('theme', this.theme)
+      localStorage.set('config', this.config)
     })
   },
   methods: {
@@ -108,6 +95,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.main{
+  padding: 1rem;
+}
+
 .tab-panel{
   display: flex;
   user-select: none;
