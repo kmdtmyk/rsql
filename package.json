@@ -4,8 +4,7 @@
   "description": "Short description and motivation.",
   "main": "index.js",
   "scripts": {
-    "start": "parcel watch app/javascript/rinfo/*.js --out-dir app/assets/javascripts/rinfo --no-source-maps --no-hmr",
-    "build": "parcel build app/javascript/rinfo/*.js --out-dir app/assets/javascripts/rinfo --no-source-maps",
+    "start": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +20,13 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
     "axios": "^0.19.0",
-    "parcel": "^1.12.4",
     "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   },
   "dependencies": {}
 }
