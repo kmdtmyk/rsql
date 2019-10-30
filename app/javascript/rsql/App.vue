@@ -48,10 +48,11 @@ export default {
   data(){
     const queries = localStorage.get('queries') || [{}]
     const config = localStorage.get('config') || {theme: ''}
+    const activeTab = localStorage.get('activeTab') || 0
     return {
       config,
       queries,
-      activeTab: 0,
+      activeTab,
     }
   },
   mounted(){
@@ -61,6 +62,7 @@ export default {
       })
       localStorage.set('queries', queries)
       localStorage.set('config', this.config)
+      localStorage.set('activeTab', this.activeTab)
     })
   },
   methods: {
