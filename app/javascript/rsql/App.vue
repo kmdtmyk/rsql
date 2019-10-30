@@ -1,5 +1,9 @@
 <template lang='pug'>
 div
+  div
+    label theme
+    select(v-model='theme')
+      option(v-for='theme in themes' :value='theme.value') {{theme.name}}
   .tab-panel(@dblclick.self='newTab')
     .tab(
       v-for='(query, index) in queries'
@@ -9,7 +13,11 @@ div
       .name {{index + 1}}
       .close(@click='closeTab(index)') ❎
   .tab-content(v-if='0 < queries.length')
-    AceEditor.editor(v-model='queries[activeTab].sql' @keypress='keypress')
+    AceEditor.editor(
+      v-model='queries[activeTab].sql'
+      :theme='theme'
+      @keypress='keypress'
+    )
     button(@click='execute' title='Ctrl+Enter') execute
     QueryResult.result(v-model='queries[activeTab].result')
 </template>
@@ -27,6 +35,18 @@ axios.defaults.headers.common = {
 
 const localStorage = new LocalStorage('rsql')
 
+const themes = [
+  {name: 'Ambiance', value: 'ambiance'},
+  {name: 'Chaos', value: 'chaos'},
+  {name: 'Default', value: ''},
+  {name: 'Dracula', value: 'dracula'},
+  {name: 'Eclipse', value: 'eclipse'},
+  {name: 'Github', value: 'github'},
+  {name: 'Monokai', value: 'monokai'},
+  {name: 'Twilight', value: 'twilight'},
+  {name: 'XCode', value: 'xcode'},
+]
+
 export default {
   components: {
     AceEditor,
@@ -34,7 +54,10 @@ export default {
   },
   data(){
     const queries = localStorage.get('queries') || [{}]
+    const theme = localStorage.get('theme') || ''
     return {
+      themes,
+      theme,
       queries,
       activeTab: 0,
     }
@@ -45,6 +68,7 @@ export default {
         return {sql: query.sql}
       })
       localStorage.set('queries', queries)
+      localStorage.set('theme', this.theme)
     })
   },
   methods: {

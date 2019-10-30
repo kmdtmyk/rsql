@@ -12,6 +12,9 @@ export default {
       type: String,
       default: '',
     },
+    theme: {
+      type: String,
+    },
   },
   watch: {
     value(value){
@@ -19,6 +22,9 @@ export default {
         return
       }
       this.editor.setValue(value, -1)
+    },
+    theme(value){
+      this.setTheme()
     },
   },
   mounted(){
@@ -38,6 +44,17 @@ export default {
     }
 
     this.editor = editor
+    this.setTheme()
+  },
+  methods: {
+    setTheme(){
+      const {theme} = this
+      if(theme == null || theme === ''){
+        this.editor.setTheme('')
+      }else{
+        this.editor.setTheme(`ace/theme/${theme}`)
+      }
+    }
   },
 }
 </script>
