@@ -86,6 +86,10 @@ export default {
       this.activeTab = this.queries.length - 1
     },
     closeTab(index){
+      if(!confirm('Are you sure to close tab?')){
+        return
+      }
+
       if(this.queries.length === 1){
         this.queries = [{}]
         return
