@@ -14,12 +14,14 @@ div
       v-for='(query, index) in queries'
       :class='{active: index === activeTab}'
     )
+      .control
+        button(title='Execute SQL (Ctrl+Enter)' @click='execute')
+          i.fa.fa-play
       AceEditor.editor(
         v-model='query.sql'
         :theme='config.theme'
         @keypress='keypress'
       )
-      button(@click='execute' title='Ctrl+Enter') execute
       QueryResult.result(v-model='query.result')
 </template>
 
@@ -140,6 +142,10 @@ export default {
     border: 0;
   }
 
+}
+
+.control{
+  padding: 2px 4px;
 }
 
 .editor{
