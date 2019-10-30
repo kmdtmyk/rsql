@@ -1,5 +1,5 @@
 <template lang='pug'>
-div(style='z-index: -1;') {{value}}
+div {{value}}
 </template>
 
 <script>

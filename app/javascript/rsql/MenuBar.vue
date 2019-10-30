@@ -85,6 +85,7 @@ export default {
 
     .menu-content{
       position: absolute;
+      z-index: 10;
       top: 2em;
       color: #000;
       background-color: #fff;
