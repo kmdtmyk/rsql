@@ -86,7 +86,8 @@ export default {
       this.activeTab = this.queries.length - 1
     },
     closeTab(index){
-      if(!confirm('Are you sure to close tab?')){
+      const {sql} = this.queries[index]
+      if(!blank(sql) && !confirm('Are you sure to close tab?')){
         return
       }
 
@@ -100,6 +101,13 @@ export default {
       this.queries.splice(index, 1)
     },
   },
+}
+
+function blank(text){
+  if(text == null){
+    return true
+  }
+  return /^[\s]*$/.test(text)
 }
 </script>
 
