@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rinfo (0.1.0)
+    rsql (0.1.0)
       rails (>= 5.0.0)
       slim (~> 4.0, >= 4.0.1)
 
@@ -127,7 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   rails (~> 5.2.3)
-  rinfo!
+  rsql!
   sqlite3
 
 BUNDLED WITH

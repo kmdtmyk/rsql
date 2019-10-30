@@ -1,17 +1,17 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "rinfo/version"
+require "rsql/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "rinfo"
-  spec.version     = Rinfo::VERSION
+  spec.name        = "rsql"
+  spec.version     = Rsql::VERSION
   spec.authors     = ["kmdtmyk"]
   spec.email       = ["winback_banderas@yahoo.co.jp"]
-  spec.homepage    = "https://github.com/kmdtmyk/rinfo"
-  spec.summary     = "Summary of Rinfo."
-  spec.description = "Description of Rinfo."
+  spec.homepage    = "https://github.com/kmdtmyk/rsql"
+  spec.summary     = "Summary of Rsql."
+  spec.description = "Description of Rsql."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

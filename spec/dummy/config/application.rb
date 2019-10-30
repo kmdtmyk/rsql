@@ -14,7 +14,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "rinfo"
+require "rsql"
 
 module Dummy
   class Application < Rails::Application

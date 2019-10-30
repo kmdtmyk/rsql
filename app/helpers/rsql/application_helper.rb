@@ -1,4 +1,4 @@
-module Rinfo
+module Rsql
   module ApplicationHelper
   end
 end

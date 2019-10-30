@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_dependency 'rinfo/application_controller'
+require_dependency 'rsql/application_controller'
 
-module Rinfo
+module Rsql
   class InfoController < ApplicationController
 
     def tables

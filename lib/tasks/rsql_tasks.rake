@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :rinfo do
+# task :rsql do
 #   # Task goes here
 # end

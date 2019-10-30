@@ -25,7 +25,7 @@ axios.defaults.headers.common = {
   'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 }
 
-const localStorage = new LocalStorage('rinfo')
+const localStorage = new LocalStorage('rsql')
 
 export default {
   components: {
