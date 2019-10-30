@@ -56,7 +56,6 @@ export default {
       this.$emit('input', {...this.config, theme})
     },
     closeMenu(){
-      console.log('close')
       this.selectedMenu = ''
     }
   },
