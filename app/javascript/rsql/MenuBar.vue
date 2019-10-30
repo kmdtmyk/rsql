@@ -45,6 +45,12 @@ export default {
     document.addEventListener('click', e => {
       this.closeMenu()
     })
+
+    document.addEventListener('keydown', e => {
+      if(e.keyCode === 27){
+        this.closeMenu()
+      }
+    })
   },
   methods: {
     oepnMenu(value){
