@@ -9,7 +9,7 @@ div
         @mousedown='selectTab(index)'
       )
         .name {{index + 1}}
-        .close(@click='closeTab(index)') ❎
+        i.fa.fa-close.close(@click='closeTab(index)')
     .tab-content(
       v-for='(query, index) in queries'
       :class='{active: index === activeTab}'
@@ -111,10 +111,12 @@ export default {
   .tab{
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     font-size: 14px;
     border: 1px solid #ccc;
     border-bottom: 0;
     min-width: 5em;
+    padding: 0 4px;
     cursor: default;
 
     .close{
