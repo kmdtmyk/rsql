@@ -9,5 +9,8 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'rsql/application', media: 'all'
     = javascript_include_tag 'rsql/application'
+
+    = yield :head
+
   body
     = yield

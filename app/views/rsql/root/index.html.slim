@@ -1,3 +1,6 @@
+- content_for :head
+  script src='//cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js'
+
 css:
 
   body{
@@ -6,8 +9,6 @@ css:
 
 #app
   App
-
-script src='//cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js'
 
 - if Rails.app_class.to_s.start_with? 'Dummy'
   = javascript_include_tag 'rsql/index.dev'
