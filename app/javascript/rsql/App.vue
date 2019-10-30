@@ -10,14 +10,17 @@ div
       )
         .name {{index + 1}}
         .close(@click='closeTab(index)') ❎
-    .tab-content(v-if='0 < queries.length')
+    .tab-content(
+      v-for='(query, index) in queries'
+      :class='{active: index === activeTab}'
+    )
       AceEditor.editor(
-        v-model='queries[activeTab].sql'
+        v-model='query.sql'
         :theme='config.theme'
         @keypress='keypress'
       )
       button(@click='execute' title='Ctrl+Enter') execute
-      QueryResult.result(v-model='queries[activeTab].result')
+      QueryResult.result(v-model='query.result')
 </template>
 
 <script>
@@ -130,6 +133,13 @@ export default {
 
 .tab-content{
   border: 1px solid #ccc;
+
+  &:not(.active){
+    height: 0;
+    overflow: hidden;
+    border: 0;
+  }
+
 }
 
 .editor{
