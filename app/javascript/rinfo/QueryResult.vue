@@ -25,6 +25,7 @@ export default {
 
 <style lang='scss' scoped>
 table{
+  font-size: 14px;
   border-collapse: separate;
   border-spacing: 0;
 
