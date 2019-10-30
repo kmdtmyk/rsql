@@ -115,7 +115,7 @@ function blank(text){
 
 <style lang='scss' scoped>
 .main{
-  padding: 1rem;
+  margin: 0.5rem;
 }
 
 .tab-panel{
