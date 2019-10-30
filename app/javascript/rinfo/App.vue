@@ -17,11 +17,14 @@ div
 <script>
 import axios from 'axios'
 import AceEditor from './AceEditor'
+import LocalStorage from './LocalStorage'
 
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
   'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 }
+
+const localStorage = new LocalStorage('rinfo')
 
 export default {
   components: {
@@ -29,9 +32,14 @@ export default {
   },
   data(){
     return {
-      sql: 'select * from books',
+      sql: localStorage.get('sql') || '',
       result: {},
     }
+  },
+  mounted(){
+    window.addEventListener('beforeunload', e => {
+      localStorage.set('sql', this.sql)
+    })
   },
   methods: {
     async execute(){
