@@ -107,28 +107,30 @@ export default {
 .tab-panel{
   display: flex;
   user-select: none;
+  transform: translateY(1px);
 
   .tab{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     border-bottom: 0;
     min-width: 5em;
     padding: 0 4px;
+    background-color: #fff;
     cursor: default;
 
     .close{
       cursor: pointer;
     }
 
-    &:hover{
-      background-color: #eee;
-    }
-
-    &.active{
+    &:not(.active){
       background-color: #ccc;
+
+      &:hover{
+        background-color: #ddd;
+      }
     }
 
   }
