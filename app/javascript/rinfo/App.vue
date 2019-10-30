@@ -41,12 +41,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 table.result{
   border-collapse: collapse;
-}
 
-th, td{
-  border: 1px solid #ccc;
+  th, td{
+    border: 1px solid #ccc;
+  }
+
 }
 </style>
