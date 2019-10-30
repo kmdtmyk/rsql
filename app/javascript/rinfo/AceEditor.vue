@@ -14,7 +14,9 @@ export default {
     },
   },
   mounted(){
-    const editor = ace.edit(this.$el)
+    const editor = ace.edit(this.$el, {
+      mode: 'ace/mode/sql',
+    })
     editor.on('change', () => {
       this.$emit('input', editor.getValue())
     })
