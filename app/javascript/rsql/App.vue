@@ -171,6 +171,7 @@ function blank(text){
 
 .tab-content{
   border: 1px solid #aaa;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
