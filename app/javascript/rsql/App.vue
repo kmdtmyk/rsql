@@ -1,5 +1,5 @@
 <template lang='pug'>
-div
+.app
   MenuBar(v-model='config')
   .main
     .tab-panel(@dblclick.self='newTab')
@@ -115,8 +115,17 @@ function blank(text){
 </script>
 
 <style lang='scss' scoped>
+.app{
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
 .main{
   margin: 0.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
 }
 
 .tab-panel{
@@ -158,11 +167,13 @@ function blank(text){
 
 .tab-content{
   border: 1px solid #aaa;
+  flex-grow: 1;
 
   &:not(.active){
     height: 0;
     overflow: hidden;
     border: 0;
+    flex-grow: 0;
   }
 
 }
