@@ -1,28 +1,27 @@
 # Rsql
-Short description and motivation.
-
-## Usage
-How to use my plugin.
 
 ## Installation
-Add this line to your application's Gemfile:
+
+Gemfile
 
 ```ruby
-gem 'rsql'
+gem 'rsql', git: 'https://github.com/kmdtmyk/rsql'
 ```
 
-And then execute:
-```bash
-$ bundle
+## Usage
+
+config/routes.rb
+
+```ruby
+Rails.application.routes.draw do
+  mount Rsql::Engine => '/sql'
+end
 ```
 
-Or install it yourself as:
-```bash
-$ gem install rsql
-```
+Open http://localhost/sql
 
-## Contributing
-Contribution directions go here.
+![screenshot](screenshot.png)
 
 ## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+MIT
