@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    index: './app/javascript/rsql/index.js',
+    main: './app/javascript/rsql/main.js',
   },
   output: {
     path: path.resolve(__dirname, './app/assets/javascripts/rsql'),

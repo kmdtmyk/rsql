@@ -14,6 +14,6 @@ css:
   App
 
 - if Rails.app_class.to_s.start_with? 'Dummy'
-  = javascript_include_tag 'rsql/index.dev'
+  = javascript_include_tag 'rsql/main.dev'
 - else
-  = javascript_include_tag 'rsql/index'
+  = javascript_include_tag 'rsql/main'
