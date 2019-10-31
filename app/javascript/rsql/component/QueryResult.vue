@@ -1,8 +1,7 @@
 <template lang='pug'>
 div(v-if='result')
   div(v-if='result.error') {{result.error}}
-  div(v-else-if='result.columns.length === 0') Query OK
-  table(v-else)
+  table(v-else-if='result.columns != null')
     thead
       tr
         th(v-for='column in result.columns') {{column}}
@@ -11,6 +10,7 @@ div(v-if='result')
         td(v-for='value in row' :class='{null: value == null}')
           template(v-if='value == null') &lt;null&gt;
           template(v-else) {{value}}
+  div(v-else) Query OK ({{result.count}} rows)
 </template>
 
 <script>
