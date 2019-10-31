@@ -13,7 +13,4 @@ css:
 #app
   App
 
-- if Rails.app_class.to_s.start_with? 'Dummy'
-  = javascript_include_tag 'rsql/main.dev'
-- else
-  = javascript_include_tag 'rsql/main'
+= webpack_javascript_tag 'main'
