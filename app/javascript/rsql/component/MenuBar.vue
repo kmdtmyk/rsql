@@ -1,6 +1,7 @@
 <template lang='pug'>
-div.menu-bar
-  .menu(@click.stop='oepnMenu("theme")') Theme
+.menu-bar
+  .menu(@click.stop='oepnMenu("theme")')
+    .menu-title(:class='{active: selectedMenu == "theme"}') Theme
     .menu-content(v-if='selectedMenu == "theme"')
       .menu-item(
         v-for='theme in themes'
@@ -79,13 +80,17 @@ export default {
 
   .menu{
     position: relative;
-    padding: 2px 8px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0);
 
-    &:hover{
-      background-color: #555;
-      border: 1px solid #888;
+    .menu-title{
+      padding: 2px 8px;
+      box-sizing: border-box;
+      border: 1px solid rgba(0, 0, 0, 0);
+
+      &:hover, &.active{
+        background-color: #555;
+        border: 1px solid #888;
+      }
+
     }
 
     .menu-content{
