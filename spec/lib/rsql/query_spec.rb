@@ -33,6 +33,12 @@ module Rsql
 
       describe 'insert' do
 
+        before do
+          Book.create(id: 1)
+          Book.create(id: 2)
+          Book.create(id: 3)
+        end
+
         example 'ignore case' do
           sql = "InSeRt InTo books (created_at, updated_at) values ('2019-10-15', '2019-10-15')"
           result = Query.execute(sql)
@@ -43,6 +49,12 @@ module Rsql
           sql = "insert \r\n \t into books (created_at, updated_at) values ('2019-10-15', '2019-10-15')"
           result = Query.execute(sql)
           expect(result[:count]).to eq 1
+        end
+
+        example 'multiple rows' do
+          sql = "insert into books (created_at, updated_at) values ('2019-10-15', '2019-10-15'), ('2019-10-16', '2019-10-16'), ('2019-10-17', '2019-10-17')"
+          result = Query.execute(sql)
+          expect(result[:count]).to eq 3
         end
 
       end

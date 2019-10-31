@@ -40,7 +40,7 @@ module Rsql
 
       def execute_insert
         {
-          count: ActiveRecord::Base.connection.insert(@sql),
+          count: ActiveRecord::Base.connection.update(@sql),
         }
       end
 
