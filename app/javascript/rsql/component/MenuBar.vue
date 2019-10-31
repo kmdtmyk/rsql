@@ -2,8 +2,8 @@
 .menu-bar
   .menu(@click.stop='oepnMenu("theme")')
     .menu-title(:class='{active: selectedMenu == "theme"}') Theme
-    .menu-content(v-if='selectedMenu == "theme"')
-      .menu-item(
+    .menu-dropdown(v-if='selectedMenu == "theme"')
+      .menu-dropdown-item(
         v-for='theme in themes'
         @click.stop='selectTheme(theme.value)'
       )
@@ -93,17 +93,15 @@ export default {
 
     }
 
-    .menu-content{
+    .menu-dropdown{
       position: absolute;
       z-index: 10;
-      top: 2em;
       color: #000;
       background-color: #fff;
       border: 1px solid #ccc;
       box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
-
-      .menu-item{
+      .menu-dropdown-item{
         padding-left: 0.5em;
         padding-right: 1em;
 
