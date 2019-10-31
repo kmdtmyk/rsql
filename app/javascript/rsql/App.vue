@@ -15,8 +15,9 @@ div
       :class='{active: index === activeTab}'
     )
       .control
-        button(title='Execute SQL (Ctrl+Enter)' @click='execute')
+        button(title='Ctrl+Enter' @click='execute')
           i.fa.fa-play
+          span Execute SQL
       AceEditor.editor(
         v-model='query.sql'
         :theme='config.theme'
@@ -168,6 +169,11 @@ function blank(text){
 
 .control{
   padding: 2px 4px;
+  button{
+    .fa{
+      margin-right: 4px;
+    }
+  }
 }
 
 .editor{
