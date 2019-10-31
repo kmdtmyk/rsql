@@ -118,14 +118,14 @@ function blank(text){
 .app{
   height: 100vh;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
 }
 
 .main{
   margin: 0.5rem;
   flex-grow: 1;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
 }
 
 .tab-panel{
