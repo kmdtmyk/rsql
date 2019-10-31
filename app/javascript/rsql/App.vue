@@ -27,10 +27,10 @@ div
 
 <script>
 import axios from 'axios'
-import MenuBar from './MenuBar'
-import AceEditor from './AceEditor'
-import QueryResult from './QueryResult'
 import LocalStorage from './LocalStorage'
+import MenuBar from './component/MenuBar'
+import AceEditor from './component/AceEditor'
+import QueryResult from './component/QueryResult'
 
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
