@@ -152,6 +152,9 @@ function blank(text){
 
     .close{
       cursor: pointer;
+      &:hover{
+        color: #666;
+      }
     }
 
     &:not(.active){
