@@ -6,15 +6,7 @@ module Rsql
   class RootController < ApplicationController
 
     def execute_sql
-      result = ActiveRecord::Base.connection.exec_query(params[:sql])
-      render json: {
-        columns: result.columns,
-        rows: result.rows,
-      }
-    rescue => e
-      render json: {
-        error: e.to_s
-      }
+      render json: Query.execute(params[:sql])
     end
 
   end
