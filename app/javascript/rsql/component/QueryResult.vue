@@ -1,6 +1,7 @@
 <template lang='pug'>
 div(v-if='result')
   div(v-if='result.error') {{result.error}}
+  div(v-else-if='result.columns.length === 0') Query OK
   table(v-else)
     thead
       tr
