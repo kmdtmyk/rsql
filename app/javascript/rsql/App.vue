@@ -18,11 +18,12 @@
         button(title='Ctrl+Enter' @click='execute')
           i.fa.fa-play
           span Execute SQL
-      AceEditor.editor(
-        v-model='query.sql'
-        :theme='config.theme'
-        @keypress='keypress'
-      )
+      div
+        AceEditor.editor(
+          v-model='query.sql'
+          :theme='config.theme'
+          @keypress='keypress'
+        )
       QueryResult.result(v-model='query.result')
 </template>
 
@@ -168,6 +169,8 @@ function blank(text){
 .tab-content{
   border: 1px solid #aaa;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 
   &:not(.active){
     height: 0;
@@ -193,6 +196,7 @@ function blank(text){
 
 .result{
   height: 20em;
+  flex-grow: 1;
   overflow: auto;
 }
 </style>
