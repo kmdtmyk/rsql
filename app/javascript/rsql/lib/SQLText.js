@@ -45,12 +45,10 @@ export default class{
 }
 
 function splitByPosition(text, positions){
-  const result = []
-  for(let i = 0; i < positions.length; i++){
-    const start = positions[i - 1] || 0
-    const end = positions[i]
-    result.push(text.substring(start, end))
-  }
+  const result = positions.map((position, index) => {
+    const start = positions[index - 1] || 0
+    return text.substring(start, position)
+  })
   const lastPosition = positions[positions.length - 1]
   result.push(text.substring(lastPosition))
   return result
