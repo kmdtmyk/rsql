@@ -14,13 +14,13 @@ export default class{
       let line = lines[i]
       if(i === position.row){
         line = line.substring(0, position.column)
-        if(line.includes(';')){
+        if(endOfQuery(line)){
           break
         }
         continue
       }
 
-      if(line.includes(';')){
+      if(endOfQuery(line)){
         array.unshift(deleteLeftQuery(line))
         break
       }
@@ -31,13 +31,13 @@ export default class{
       let line = lines[i]
       if(i === position.row){
         line = line.substring(position.column)
-        if(line.includes(';')){
+        if(endOfQuery(line)){
           break
         }
         continue
       }
 
-      if(line.includes(';')){
+      if(endOfQuery(line)){
         array.push(deleteRightQuery(line))
         break
       }
@@ -51,6 +51,10 @@ export default class{
 }
 
 function deleteLeftQuery(text){
+  const comment = getComment(text)
+  if(comment !== ''){
+    return deleteLeftQuery(deleteComment(text)) + comment
+  }
   const index = text.lastIndexOf(';')
   if(index !== -1){
     return text.substring(index + 1)
@@ -59,9 +63,33 @@ function deleteLeftQuery(text){
 }
 
 function deleteRightQuery(text){
+  const comment = getComment(text)
+  if(comment !== ''){
+    return deleteRightQuery(deleteComment(text)) + comment
+  }
   const index = text.indexOf(';')
   if(index !== -1){
     return text.substring(0, index)
   }
   return text
+}
+
+function endOfQuery(line){
+  return deleteComment(line).includes(';')
+}
+
+function getComment(line){
+  const commentIndex = line.indexOf('--')
+  if(commentIndex !== -1){
+    return line.substring(commentIndex)
+  }
+  return ''
+}
+
+function deleteComment(line){
+  const commentIndex = line.indexOf('--')
+  if(commentIndex !== -1){
+    return line.substring(0, commentIndex)
+  }
+  return line
 }

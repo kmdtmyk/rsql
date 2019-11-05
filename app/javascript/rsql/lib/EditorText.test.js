@@ -35,5 +35,15 @@ describe('getCursorQuery', () => {
     expect(EditorText.getCursorQuery(text, {row: 3, column: 1})).toEqual('\nselect * from table3')
   })
 
+  test('multiple lines (contains comment)' , () => {
+    const text = s(
+      'select * --;comment',
+      'from table',
+    )
+    expect(EditorText.getCursorQuery(text, {row: 0, column: 0})).toEqual(text)
+    expect(EditorText.getCursorQuery(text, {row: 0, column: 15})).toEqual(text)
+    expect(EditorText.getCursorQuery(text, {row: 1, column: 0})).toEqual(text)
+  })
+
 })
 
