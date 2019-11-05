@@ -20,6 +20,7 @@
           span Execute SQL
       div
         AceEditor.editor(
+          ref='editor'
           v-model='query.sql'
           :theme='config.theme'
           @keypress='keypress'
@@ -69,10 +70,11 @@ export default {
   },
   methods: {
     async execute(){
-      const query = this.queries[this.activeTab]
-      const result = await axios.post('sql', {sql: query.sql})
+      const editor = this.$refs.editor[this.activeTab]
+      const result = await axios.post('sql', {sql: editor.getQuery()})
       console.log(result)
       console.log(result.data)
+      const query = this.queries[this.activeTab]
       query.result = result.data
       this.$forceUpdate()
     },

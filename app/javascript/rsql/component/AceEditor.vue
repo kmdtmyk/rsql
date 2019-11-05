@@ -3,6 +3,8 @@ div {{value}}
 </template>
 
 <script>
+import EditorText from '../lib/EditorText'
+
 export default {
   model: {
     prop: 'value',
@@ -54,7 +56,12 @@ export default {
       }else{
         this.editor.setTheme(`ace/theme/${theme}`)
       }
-    }
+    },
+    getQuery(){
+      const text = this.editor.getValue()
+      const position = this.editor.getCursorPosition()
+      return EditorText.getCursorQuery(text, position)
+    },
   },
 }
 </script>
