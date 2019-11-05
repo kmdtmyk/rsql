@@ -22,6 +22,16 @@ Open http://localhost/sql
 
 ![screenshot](screenshot.png)
 
+## Test
+
+```bash
+npm test
+```
+
+```bash
+rspec
+```
+
 ## License
 
 MIT
