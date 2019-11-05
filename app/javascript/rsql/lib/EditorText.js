@@ -5,16 +5,8 @@ export default class{
     let array = []
 
     const cursorLine = lines[position.row]
-    let cursorLeft = cursorLine.substring(0, position.column)
-    let cursorRight = cursorLine.substring(position.column)
-
-    if(cursorLeft.includes(';')){
-      cursorLeft = cursorLeft.substring(cursorLeft.lastIndexOf(';') + 1)
-    }
-
-    if(cursorRight.includes(';')){
-      cursorRight = cursorRight.substring(0, cursorRight.indexOf(';'))
-    }
+    let cursorLeft = deleteLeftQuery(cursorLine.substring(0, position.column))
+    let cursorRight = deleteRightQuery(cursorLine.substring(position.column))
 
     array.push(cursorLeft + cursorRight)
 
@@ -29,8 +21,7 @@ export default class{
       }
 
       if(line.includes(';')){
-        line = line.substring(line.lastIndexOf(';') + 1)
-        array.unshift(line)
+        array.unshift(deleteLeftQuery(line))
         break
       }
       array.unshift(line)
@@ -47,8 +38,7 @@ export default class{
       }
 
       if(line.includes(';')){
-        line = line.substring(0, line.indexOf(';'))
-        array.push(line)
+        array.push(deleteRightQuery(line))
         break
       }
 
@@ -58,4 +48,20 @@ export default class{
     return array.join('\n')
   }
 
+}
+
+function deleteLeftQuery(text){
+  const index = text.lastIndexOf(';')
+  if(index !== -1){
+    return text.substring(index + 1)
+  }
+  return text
+}
+
+function deleteRightQuery(text){
+  const index = text.indexOf(';')
+  if(index !== -1){
+    return text.substring(0, index)
+  }
+  return text
 }
