@@ -5,23 +5,34 @@ export default class{
     const splitPositions = []
     let lineComment = false
     let commentLevel = 0
+    let stringLiteral = false
 
     for(let i = 0; i < text.length; i++){
       const char = text[i]
       const char2 = text.substr(i, 2)
       if(char2 === '--'){
         i++
-        lineComment = true
+        if(stringLiteral === false){
+          lineComment = true
+        }
       }else if(char2 === '/*'){
         i++
-        commentLevel++
+        if(stringLiteral === false){
+          commentLevel++
+        }
       }else if(char2 === '*/'){
         i++
-        commentLevel--
+        if(stringLiteral === false){
+          commentLevel--
+        }
+      }else if(char === '\''){
+        if(lineComment === false && commentLevel === 0){
+          stringLiteral = !stringLiteral
+        }
       }else if(char === '\n'){
         lineComment = false
       }else if(char === ';'){
-        if(lineComment === false && commentLevel === 0){
+        if(lineComment === false && commentLevel === 0 && stringLiteral === false){
           splitPositions.push(i + 1)
         }
       }
