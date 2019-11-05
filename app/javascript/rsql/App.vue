@@ -30,7 +30,7 @@
 
 <script>
 import axios from 'axios'
-import LocalStorage from './LocalStorage'
+import LocalStorage from './lib/LocalStorage'
 import MenuBar from './component/MenuBar'
 import AceEditor from './component/AceEditor'
 import QueryResult from './component/QueryResult'
