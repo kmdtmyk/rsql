@@ -1,6 +1,6 @@
 import SQLText from './SQLText'
 
-const s = (...args) => {
+const s = (...args: string[]) => {
   return args.join('\n')
 }
 
