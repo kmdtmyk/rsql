@@ -71,7 +71,7 @@ export default {
   methods: {
     async execute(){
       const editor = this.$refs.editor[this.activeTab]
-      const result = await axios.post('sql', {sql: editor.getQuery()})
+      const result = await axios.post('', {sql: editor.getQuery()})
       console.log(result)
       console.log(result.data)
       const query = this.queries[this.activeTab]
