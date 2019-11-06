@@ -12,6 +12,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
       },
@@ -29,7 +33,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.ts', '.vue'],
   },
   plugins: [new VueLoaderPlugin()],
 }
