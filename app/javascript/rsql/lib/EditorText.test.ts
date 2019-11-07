@@ -1,6 +1,6 @@
 import EditorText from './EditorText'
 
-const s = (...args) => {
+const s = (...args: string[]) => {
   return args.join('\n')
 }
 

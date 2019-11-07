@@ -2,7 +2,7 @@ import SQLText from './SQLText'
 
 export default class{
 
-  static getCursorQuery(text, position){
+  static getCursorQuery(text: string, position: {column: number, row: number}){
     const queries = SQLText.split(text)
     const lines = text.split('\n')
 

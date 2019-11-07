@@ -1,7 +1,6 @@
 export default class{
 
-  static split(text){
-
+  static split(text: string){
     const splitPositions = []
     let lineComment = false
     let commentLevel = 0
@@ -44,7 +43,7 @@ export default class{
 
 }
 
-function splitByPosition(text, positions){
+function splitByPosition(text: string, positions: number[]){
   const result = positions.map((position, index) => {
     const start = positions[index - 1] || 0
     return text.substring(start, position)
