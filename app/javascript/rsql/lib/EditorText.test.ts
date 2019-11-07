@@ -45,5 +45,14 @@ describe('getCursorQuery', () => {
     expect(EditorText.getCursorQuery(text, {row: 1, column: 0})).toEqual(text)
   })
 
+  test('last space' , () => {
+    const text = s(
+      'select * from table1',
+      '; \t \n ',
+    )
+    expect(EditorText.getCursorQuery(text, {row: 1, column: 0})).toEqual('select * from table1\n')
+    expect(EditorText.getCursorQuery(text, {row: 1, column: 1})).toEqual(' \t \n ')
+  })
+
 })
 

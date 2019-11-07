@@ -38,7 +38,6 @@ export default class{
     }
 
     return splitByPosition(text, splitPositions)
-      .filter(text => text.match(/[\S]/))
   }
 
 }

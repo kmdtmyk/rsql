@@ -60,11 +60,11 @@ describe('split', () => {
     expect(SQLText.split(text)).toEqual(["select '/*';", 'select 1'])
   })
 
-  test('ignore last space' , () => {
+  test('last space' , () => {
     const text = s(
-      'select * from table1; \t \n',
+      'select * from table1; \t \n ',
     )
-    expect(SQLText.split(text)).toEqual(['select * from table1;'])
+    expect(SQLText.split(text)).toEqual(['select * from table1;', ' \t \n '])
   })
 
 })
