@@ -58,6 +58,10 @@ export default {
       }
     },
     getQuery(){
+      const selectedText = this.editor.getSelectedText()
+      if(selectedText !== ''){
+        return selectedText
+      }
       const text = this.editor.getValue()
       const position = this.editor.getCursorPosition()
       return EditorText.getCursorQuery(text, position)
