@@ -31,6 +31,7 @@
 <script>
 import axios from 'axios'
 import LocalStorage from './lib/LocalStorage'
+import SQLText from './lib/SQLText'
 import MenuBar from './component/MenuBar'
 import AceEditor from './component/AceEditor'
 import QueryResult from './component/QueryResult'
@@ -93,7 +94,7 @@ export default {
     },
     closeTab(index){
       const {sql} = this.queries[index]
-      if(!blank(sql) && !confirm('Are you sure to close tab?')){
+      if(!SQLText.isEmpty(sql) && !confirm('Are you sure to close tab?')){
         return
       }
 
@@ -107,13 +108,6 @@ export default {
       this.queries.splice(index, 1)
     },
   },
-}
-
-function blank(text){
-  if(text == null){
-    return true
-  }
-  return /^[\s]*$/.test(text)
 }
 </script>
 

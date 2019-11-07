@@ -1,6 +1,13 @@
 export default class{
 
-  static split(text: string){
+  static isEmpty(text: string): boolean{
+    if(text == null){
+      return true
+    }
+    return /^[\s]*$/.test(text)
+  }
+
+  static split(text: string): string[]{
     const splitPositions = []
     let lineComment = false
     let commentLevel = 0

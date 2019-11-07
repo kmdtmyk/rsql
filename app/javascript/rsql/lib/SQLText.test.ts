@@ -4,6 +4,18 @@ const s = (...args: string[]) => {
   return args.join('\n')
 }
 
+describe('isEmpty', () => {
+
+  test('empty', () => {
+    expect(SQLText.isEmpty(' \t \n \r\n ')).toEqual(true)
+  })
+
+  test('not empty', () => {
+    expect(SQLText.isEmpty('a')).toEqual(false)
+  })
+
+})
+
 describe('split', () => {
 
   test('1 query' , () => {
