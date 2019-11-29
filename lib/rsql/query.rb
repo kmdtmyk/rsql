@@ -12,47 +12,56 @@ module Rsql
     end
 
     def execute
-      if @sql.match? /insert[[:space:]]+into/i
-        execute_insert
-      elsif @sql.match? /update/i
-        execute_update
-      elsif @sql.match? /delete[[:space:]]+from/i
-        execute_delete
-      else
-        execute_query
+      SQLText.split(@sql).map do |query|
+        begin
+          if @sql.match? /insert[[:space:]]+into/i
+            execute_insert(query)
+          elsif @sql.match? /update/i
+            execute_update(query)
+          elsif @sql.match? /delete[[:space:]]+from/i
+            execute_delete(query)
+          else
+            execute_query(query)
+          end
+        rescue => e
+          {
+            query: query,
+            error: e.to_s,
+          }
+        end
       end
-    rescue => e
-      {
-        error: e.to_s
-      }
     end
 
     private
 
-      def execute_query
-        result = ActiveRecord::Base.connection.exec_query(@sql)
+      def execute_query(query)
+        result = ActiveRecord::Base.connection.exec_query(query)
         {
+          query: query,
           columns: result.columns,
           rows: result.rows,
           count: result.rows.size,
         }
       end
 
-      def execute_insert
+      def execute_insert(query)
         {
-          count: ActiveRecord::Base.connection.update(@sql),
+          query: query,
+          count: ActiveRecord::Base.connection.update(query),
         }
       end
 
-      def execute_update
+      def execute_update(query)
         {
-          count: ActiveRecord::Base.connection.update(@sql),
+          query: query,
+          count: ActiveRecord::Base.connection.update(query),
         }
       end
 
-      def execute_delete
+      def execute_delete(query)
         {
-          count: ActiveRecord::Base.connection.delete(@sql),
+          query: query,
+          count: ActiveRecord::Base.connection.delete(query),
         }
       end
 

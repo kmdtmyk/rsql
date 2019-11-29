@@ -25,7 +25,8 @@
           :theme='config.theme'
           @keypress='keypress'
         )
-      QueryResult.result(v-model='query.result')
+      div(v-for='(result, index) in results' :key='index')
+        QueryResult.result(v-model='results[index]')
 </template>
 
 <script>
@@ -57,6 +58,7 @@ export default {
       config,
       queries,
       activeTab,
+      results: [],
     }
   },
   mounted(){
@@ -72,12 +74,11 @@ export default {
   methods: {
     async execute(){
       const editor = this.$refs.editor[this.activeTab]
-      const result = await axios.post('', {sql: editor.getQuery()})
+      const sql = editor.getQuery()
+      const result = await axios.post('', {sql})
       console.log(result)
       console.log(result.data)
-      const query = this.queries[this.activeTab]
-      query.result = result.data
-      this.$forceUpdate()
+      this.results = result.data
     },
     keypress(e){
       if(e.ctrlKey === true && (e.keyCode === 10 || e.keyCode === 13)){
