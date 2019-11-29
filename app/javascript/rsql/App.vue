@@ -27,8 +27,22 @@
           :theme='config.theme'
           @keypress='keypress'
         )
-      div(v-for='(result, index) in results' :key='index')
-        QueryResult.result(v-model='results[index]')
+      .result
+        TabPanel
+          Tab(
+            v-for='(result, index) in results'
+            :key='index'
+            :class='{active: index === activeResultTab}'
+            @mousedown='activeResultTab = index'
+          )
+            .name {{index + 1}}
+        TabContent(
+          style='flex-grow: 1;'
+          v-for='(result, index) in results'
+          :key='index'
+          v-show='index === activeResultTab'
+        )
+          QueryResult.result(v-model='results[index]')
 </template>
 
 <script>
@@ -62,10 +76,12 @@ export default {
     const queries = localStorage.get('queries') || [{}]
     const config = localStorage.get('config') || {theme: ''}
     const activeTab = localStorage.get('activeTab') || 0
+    const activeResultTab = 0
     return {
       config,
       queries,
       activeTab,
+      activeResultTab,
       results: [],
     }
   },
@@ -86,6 +102,7 @@ export default {
       const result = await axios.post('', {sql})
       console.log(result)
       console.log(result.data)
+      this.activeResultTab = 0
       this.results = result.data
     },
     keypress(e){
@@ -148,7 +165,8 @@ export default {
 }
 
 .result{
-  height: 20em;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   overflow: auto;
 }
