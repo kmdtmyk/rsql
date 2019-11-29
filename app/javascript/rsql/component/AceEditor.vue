@@ -20,13 +20,6 @@ export default {
     },
   },
   watch: {
-    value(value){
-      const {content} = value
-      if(content === this.editor.getValue()){
-        return
-      }
-      this.editor.setValue(content, -1)
-    },
     theme(value){
       this.setTheme()
     },
