@@ -37,10 +37,10 @@
           )
             .name {{index + 1}}
         TabContent(
-          style='flex-grow: 1;'
           v-for='(result, index) in results'
           :key='index'
-          v-show='index === activeResultTab'
+          :class='{borderless: true, active: index === activeResultTab}'
+          style='border-top-width: 1px;'
         )
           QueryResult.result(v-model='results[index]')
 </template>

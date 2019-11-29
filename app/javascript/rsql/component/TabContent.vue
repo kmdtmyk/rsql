@@ -10,9 +10,14 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  height: 0;
+
+  .borderless{
+    border-width: 0;
+    box-shadow: none;
+  }
 
   &:not(.active){
-    height: 0;
     overflow: hidden;
     border: 0;
     flex-grow: 0;
