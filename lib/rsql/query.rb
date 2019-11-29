@@ -14,11 +14,11 @@ module Rsql
     def execute
       SQLText.split(@sql).map do |query|
         begin
-          if @sql.match? /insert[[:space:]]+into/i
+          if query.match? /insert[[:space:]]+into/i
             execute_insert(query)
-          elsif @sql.match? /update/i
+          elsif query.match? /update/i
             execute_update(query)
-          elsif @sql.match? /delete[[:space:]]+from/i
+          elsif query.match? /delete[[:space:]]+from/i
             execute_delete(query)
           else
             execute_query(query)
