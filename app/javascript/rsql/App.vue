@@ -73,8 +73,8 @@ export default {
     TabPanel,
   },
   data(){
-    const editors = localStorage.get('editors') || [{}]
-    const config = localStorage.get('config') || {theme: ''}
+    const editors = localStorage.get('editors', Array) || [{}]
+    const config = localStorage.get('config', Object) || {theme: ''}
     const activeTab = localStorage.get('activeTab') || 0
     const activeResultTab = 0
     return {

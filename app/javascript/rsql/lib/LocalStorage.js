@@ -4,8 +4,8 @@ export default class LocalStorage{
     this.name = name
   }
 
-  get(key){
-    return LocalStorage.get(this._storageKey(key))
+  get(key, type){
+    return LocalStorage.get(this._storageKey(key), type)
   }
 
   set(key, value){
@@ -19,9 +19,13 @@ export default class LocalStorage{
     return `${this.name}#${key}`
   }
 
-  static get(key){
+  static get(key, type){
     try{
-      return JSON.parse(localStorage.getItem(key))
+      const result = JSON.parse(localStorage.getItem(key))
+      if(type != null && result instanceof type === false){
+        return null
+      }
+      return result
     }catch(e){
       return null
     }
