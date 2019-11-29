@@ -4,7 +4,7 @@
   .main
     TabPanel(@dblclick.self='newTab')
       Tab(
-        v-for='(query, index) in queries'
+        v-for='(editor, index) in editors'
         :key='index'
         :class='{active: index === activeTab}'
         @mousedown='selectTab(index)'
@@ -12,7 +12,7 @@
         .name {{index + 1}}
         i.fa.fa-close.close(@click='closeTab(index)')
     TabContent(
-      v-for='(query, index) in queries'
+      v-for='(editor, index) in editors'
       :key='index'
       :class='{active: index === activeTab}'
     )
@@ -23,7 +23,7 @@
       div
         AceEditor.editor(
           ref='editor'
-          v-model='query.sql'
+          v-model='editor.content'
           :theme='config.theme'
           @keypress='keypress'
         )
@@ -73,13 +73,13 @@ export default {
     TabPanel,
   },
   data(){
-    const queries = localStorage.get('queries') || [{}]
+    const editors = localStorage.get('editors') || [{}]
     const config = localStorage.get('config') || {theme: ''}
     const activeTab = localStorage.get('activeTab') || 0
     const activeResultTab = 0
     return {
+      editors,
       config,
-      queries,
       activeTab,
       activeResultTab,
       results: [],
@@ -87,10 +87,7 @@ export default {
   },
   mounted(){
     window.addEventListener('beforeunload', e => {
-      const queries = this.queries.map(query => {
-        return {sql: query.sql}
-      })
-      localStorage.set('queries', queries)
+      localStorage.set('editors', this.editors)
       localStorage.set('config', this.config)
       localStorage.set('activeTab', this.activeTab)
     })
@@ -115,23 +112,24 @@ export default {
       this.activeTab = index
     },
     newTab(){
-      this.queries.push({})
-      this.activeTab = this.queries.length - 1
+      this.editors.push({})
+      this.activeTab = this.editors.length - 1
     },
     closeTab(index){
-      const {sql} = this.queries[index]
-      if(!SQLText.isEmpty(sql) && !confirm('Are you sure to close tab?')){
+      const {content} = this.editors[index]
+      if(!SQLText.isEmpty(content) && !confirm('Are you sure to close tab?')){
         return
       }
 
-      if(this.queries.length === 1){
-        this.queries = [{}]
+      if(this.editors.length === 1){
+        this.editors = [{}]
         return
       }
-      if(this.activeTab === this.queries.length - 1){
-        this.activeTab = this.queries.length - 2
+
+      if(this.activeTab === this.editors.length - 1){
+        this.activeTab = this.editors.length - 2
       }
-      this.queries.splice(index, 1)
+      this.editors.splice(index, 1)
     },
   },
 }
