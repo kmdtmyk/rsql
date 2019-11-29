@@ -12,24 +12,10 @@ module Rsql
     end
 
     def split
-      positions = split_positions
-
-      if positions.empty?
-        return [@text]
-      end
-
-      result = positions.map.with_index do |position, index|
-        if index == 0
-          start = 0
-        else
-          start = positions[index]
-        end
-        @text[start...position]
-      end
-
-      result << @text[positions.last..-1]
-
-      result
+      [0, *split_positions, @text.length]
+        .each_cons(2)
+        .map{ |first, last| @text[first...last]}
+        .filter{ |text| text.delete_suffix(';').present? }
     end
 
     private

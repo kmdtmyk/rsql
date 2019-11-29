@@ -53,9 +53,14 @@ module Rsql
         expect(SQLText.split(text)).to eq ["select '/*';", "select 1"]
       end
 
-      example 'last space' do
-        text = "select * from table1; \t \n "
-        expect(SQLText.split(text)).to eq ["select * from table1;", " \t \n "]
+      example 'one line 2 queries' do
+        text = "select 1;select 2;"
+        expect(SQLText.split(text)).to eq ["select 1;", "select 2;"]
+      end
+
+      example 'ignore blank' do
+        text = "\n ;select * from table1; \t \n "
+        expect(SQLText.split(text)).to eq ["select * from table1;"]
       end
 
     end
