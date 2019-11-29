@@ -1,9 +1,11 @@
 <template lang='pug'>
-div {{value}}
+div {{value.content}}
 </template>
 
 <script>
 import EditorText from '../lib/EditorText'
+
+const Range = ace.Range
 
 export default {
   model: {
@@ -11,8 +13,7 @@ export default {
   },
   props: {
     value: {
-      type: String,
-      default: '',
+      type: Object,
     },
     theme: {
       type: String,
@@ -20,10 +21,11 @@ export default {
   },
   watch: {
     value(value){
-      if(value === this.editor.getValue()){
+      const {content} = value
+      if(content === this.editor.getValue()){
         return
       }
-      this.editor.setValue(value, -1)
+      this.editor.setValue(content, -1)
     },
     theme(value){
       this.setTheme()
@@ -33,8 +35,30 @@ export default {
     const editor = ace.edit(this.$el, {
       mode: 'ace/mode/sql',
     })
+
+    const {selection} = this.value
+    if(selection != null){
+      editor.selection.setRange(new Range(
+        selection.startRow,
+        selection.startColumn,
+        selection.endRow,
+        selection.endColumn
+      ))
+    }
+
     editor.on('change', () => {
-      this.$emit('input', editor.getValue())
+      this.$emit('input', {...this.value, content: editor.getValue()})
+    })
+
+    editor.session.selection.on('changeSelection', (e, data) => {
+      const {anchor, cursor} = data
+      const selection = {
+        startRow: anchor.row,
+        startColumn: anchor.column,
+        endRow: cursor.row,
+        endColumn: cursor.column,
+      }
+      this.$emit('input', {...this.value, selection})
     })
 
     const {keydown, keypress} = this.$listeners

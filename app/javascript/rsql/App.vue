@@ -23,7 +23,7 @@
       div
         AceEditor.editor(
           ref='editor'
-          v-model='editor.content'
+          v-model='editors[index]'
           :theme='config.theme'
           @keypress='keypress'
         )
