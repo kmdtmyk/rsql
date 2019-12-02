@@ -1,3 +1,5 @@
+[![Test](https://github.com/kmdtmyk/rsql/workflows/Test/badge.svg)](https://github.com/kmdtmyk/rsql/actions)
+
 # Rsql
 
 ## Installation
