@@ -30,19 +30,19 @@
       .result
         TabPanel
           Tab(
-            v-for='(result, index) in results'
+            v-for='(result, index) in editor.results'
             :key='index'
             :class='{active: index === activeResultTab}'
             @mousedown='activeResultTab = index'
           )
             .name {{index + 1}}
         TabContent(
-          v-for='(result, index) in results'
+          v-for='(result, index) in editor.results'
           :key='index'
           :class='{borderless: true, active: index === activeResultTab}'
           style='border-top-width: 1px;'
         )
-          QueryResult.result(v-model='results[index]')
+          QueryResult.result(v-model='editor.results[index]')
 </template>
 
 <script>
@@ -82,25 +82,27 @@ export default {
       config,
       activeTab,
       activeResultTab,
-      results: [],
     }
   },
   mounted(){
     window.addEventListener('beforeunload', e => {
-      localStorage.set('editors', this.editors)
+      const editors = this.editors.map(({content, selection}) => {
+        return {content, selection}
+      })
+      localStorage.set('editors', editors)
       localStorage.set('config', this.config)
       localStorage.set('activeTab', this.activeTab)
     })
   },
   methods: {
     async execute(){
-      const editor = this.$refs.editor[this.activeTab]
-      const sql = editor.getQuery()
+      const editor = this.editors[this.activeTab]
+      const sql = this.$refs.editor[this.activeTab].getQuery()
       const result = await axios.post('', {sql})
       console.log(result)
       console.log(result.data)
       this.activeResultTab = 0
-      this.results = result.data
+      this.$set(editor, 'results', result.data)
     },
     keypress(e){
       if(e.ctrlKey === true && (e.keyCode === 10 || e.keyCode === 13)){
